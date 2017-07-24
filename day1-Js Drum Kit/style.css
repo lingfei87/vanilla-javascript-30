@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/**
+ * 
+ * @dash (@example.org)
+ * @date    2017-07-24 21:08:55
+ * @version $1.0$
+ */
+*{
+    margin:0;
+    padding: 0; 
+    font-size:12px;
+    font-family: sans-serif;
+}
+.keys{
+    width:100%;
+    height:700px;
+    position: fixed;
+    background:url('back_img.jpg') center bottom;
+    background-size:cover;  
+    display:flex ;
+    flex-flow:row no-wrap;
+    justify-content: center;
+    align-items:center;
+}
+.key{
+    height: 80px;
+    width: 100px;
+    background-color:rgba(0,0,0,0.3);
+    text-align: center;
+    margin:10px 20px;
+    padding:10px;
+    border:5px solid black;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    transition:all .07s;
+}
+.key kbd{
+    color:white;
+    font-size: 2.6rem;
+}
+.key span{
+    display: block;
+    color:#f39c12;
+    margin-top:5px;
+}
+.active{
+    transform:scale(1.1);
+  border-color:#ffc600;
+  box-shadow: 0 0 10px #ffc600;
+
+}
