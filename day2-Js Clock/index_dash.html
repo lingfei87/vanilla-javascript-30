@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="container">
+     <div class="clock">
+       <div class="hand hour-hand"></div>
+       <div class="hand min-hand"></div>
+       <div class="hand sec-hand"></div>
+     </div>
+   </div>
+  <script>
+  /*存在的问题
+  1.初始状态会闪烁
+  2.经过12点位置时会有bug
+   */
+   //更新视图函数
+   function updateTime(){
+      var date = new Date();
+      var minHand = document.querySelectorAll(".hand")[1];
+      var secHand = document.querySelectorAll(".hand")[2];
+      //计算各个指针的旋转角度
+      var hour = Math.round(date.getHours()/24 *360)+90;
+      var minute = Math.round(date.getMinutes()/60*360)+90;
+      var second = Math.round(date.getSeconds()/60*360)+90;
+      //解决问题2
+      if (second === 90) secHand.style.transition = 'all 0s';
+      else secHand.style.transition = 'all 0.05s';
+      if (minute === 90) minHand.style.transition = 'all 0s';
+      else minHand.style.transition = 'all 0.1s';
+      //刷新视图
+      document.querySelectorAll(".hand")[0].style.transform = `rotate(${hour}deg)`;
+      document.querySelectorAll(".hand")[1].style.transform = `rotate(${minute}deg)`;
+      document.querySelectorAll(".hand")[2].style.transform = `rotate(${second}deg)`;
+   }
+   //每秒刷新时间
+   setInterval(updateTime, 1000);
+   // 解决问题1
+   setTimeout(function(){
+      document.querySelector(".clock").style.opacity = '1';
+   },1100); 
+  </script>
+</body>
+</html>
