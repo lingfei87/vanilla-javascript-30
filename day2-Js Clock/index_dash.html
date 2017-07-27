@@ -24,7 +24,7 @@
       var minHand = document.querySelectorAll(".hand")[1];
       var secHand = document.querySelectorAll(".hand")[2];
       //计算各个指针的旋转角度
-      var hour = Math.round(date.getHours()/24 *360)+90;
+      var hour = Math.round((date.getHours() % 12)/12 *360)+90;
       var minute = Math.round(date.getMinutes()/60*360)+90;
       var second = Math.round(date.getSeconds()/60*360)+90;
       //解决问题2
@@ -37,8 +37,28 @@
       document.querySelectorAll(".hand")[1].style.transform = `rotate(${minute}deg)`;
       document.querySelectorAll(".hand")[2].style.transform = `rotate(${second}deg)`;
    }
+   /*
+    *
+    *累计时间解决指针过12点位置跳动问题
+    * 
+    */
+   var date = new Date();
+   var second = Math.round(date.getSeconds()/60*360)+90;
+   var minute = Math.round(date.getMinutes()/60*360)+90;
+   var hour = Math.round((date.getHours() % 12)/12 *360)+90+minute/360*30;
+   console.log(hour);
+   function updateTime2(){
+      hour += 6/3600;
+      minute += 6/60;
+      second += 6;
+      document.querySelectorAll(".hand")[0].style.transform = `rotate(${hour}deg)`;
+      document.querySelectorAll(".hand")[1].style.transform = `rotate(${minute}deg)`;
+      document.querySelectorAll(".hand")[2].style.transform = `rotate(${second}deg)`;
+   }
+
+
    //每秒刷新时间
-   setInterval(updateTime, 1000);
+   setInterval(updateTime2, 1000);
    // 解决问题1
    setTimeout(function(){
       document.querySelector(".clock").style.opacity = '1';
