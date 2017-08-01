@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Day3 CSS Variables</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Update Css Variables with<span> JS</span></h1>
+        <div class="ctrl-panel" id="ctrlPanel">
+            <div class="ctrl-panel-item">
+                <label for="spacing">Spacing:</label>
+                <input type="range" min="10" max="100" value="20" name="varPadding" data-sizing="px">
+            </div>
+            <div class="ctrl-panel-item">
+                 <label for="blur">Blur:</label>
+                <input type="range" min="0" max="40" value="0" name="varBlur" data-sizing="px">
+            </div>
+            <div class="ctrl-panel-item">
+                <label for="bcolor">Base Color</label>
+                <input type="color" name="varBcolor">
+            </div>
+        </div>
+        <!--图片显示-->
+        <div class="gallery">
+          <img class="mainPic" src="pic.jpg" alt="示例图片">
+        </div>
+    </div>
+    <script>
+      var inputs = document.querySelectorAll("input");
+
+      function handleUpdate() {
+        var suffix = this.dataset.sizing || '';
+        //取根元素
+        document.documentElement.style.setProperty(`--${this.name}`,this.value+suffix);
+      } 
+     inputs.forEach(input => input.addEventListener('change', handleUpdate));
+     
+    </script>
+</body>
+</html>
