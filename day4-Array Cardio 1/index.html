@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Day4 Array Cardio 1</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+//本节结果均在调试面板中查看
+    const inventors = [
+      { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
+      { first: 'Isaac', last: 'Newton', year: 1643, passed: 1727 },
+      { first: 'Galileo', last: 'Galilei', year: 1564, passed: 1642 },
+      { first: 'Marie', last: 'Curie', year: 1867, passed: 1934 },
+      { first: 'Johannes', last: 'Kepler', year: 1571, passed: 1630 },
+      { first: 'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543 },
+      { first: 'Max', last: 'Planck', year: 1858, passed: 1947 },
+      { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 },
+      { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 },
+      { first: 'Sarah E.', last: 'Goode', year: 1855, passed: 1905 },
+      { first: 'Lise', last: 'Meitner', year: 1878, passed: 1968 },
+      { first: 'Hanna', last: 'Hammarström', year: 1829, passed: 1909 }
+    ];
+    const flavours = ['Chocolate Chip', 'Kulfi', 'Caramel Praline', 'Chocolate', 'Burnt Caramel', 'Pistachio', 'Rose', 'Sweet Coconut', 'Lemon Cookie', 'Toffeeness', 'Toasted Almond', 'Black Raspberry Crunch', 'Chocolate Brownies', 'Pistachio Almond', 'Strawberry', 'Lavender Honey', 'Lychee', 'Peach', 'Black Walnut', 'Birthday Cake', 'Mexican Chocolate', 'Mocha Almond Fudge', 'Raspberry'];
+    const datas = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+//mission-1 筛选16世纪出生的发明家
+/*
+    var results1 = inventors.filter(function(inventor){
+         if(inventor.year > 1500 && inventor.year <1600){
+            return inventor;
+         }
+    });
+    */
+   // console.table(results1);
+//mission-2 展示姓名
+/*   
+ var results2 = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+     console.log(results2);
+*/
+//mission-3 按年龄排序
+/* 
+var results3 = inventors.sort(function(a, b){
+    if(a.passed - a.year - b.passed + b.year >= 0){
+      return -1;
+    }else{
+      return 1;
+    }
+});
+console.table(results3);
+*/
+//mission-4 计算加起来活了多少岁
+/* 
+var results4 = inventors.reduce(function(total,inventor){
+    return total + inventor.passed - inventor.year;
+},0);
+console.log(results4);
+*/
+//mission-5 好像和mission3是一个意思
+//mission-6 筛选出一个网页里含有某个词语的标题 本例中从flavors中筛选出含有字段Almond的项
+/* 
+var results5 = flavours.filter(function(flavor){
+    if (flavor.indexOf('Almond')>=0){
+      return true;
+    }else{
+      return false;
+    }
+});
+console.log(results5);
+*/
+//mission-7按照姓氏来排序
+/*
+   var results7 = inventors.sort(function(a,b){
+    if(a.last > b.last){
+      return 1;
+    }else{
+      return -1;
+    }
+});
+console.table(results7);*/
+// mission-8 统计给出数组中各个物品的个数
+var results8 = datas.reduce(function(total,cur,i){
+    if(total[cur]){
+      total[cur]+= 1;
+    }else{
+      total[cur] = 1;
+    }
+    return total;
+},{});
+console.log(results8);
+
+</script>
+
+</body>
+</html>
