@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Day6 Array Cardio 1</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="style.css"></head>
+<body>
+  <div class="container">
+    <input type="text" id="detail" onkeyup="filterData()" placeholder="请输入古诗词句">
+    <div class="moredata" id="think"></div>
+  </div>
+  <script>
+
+var poetrysOrigin = [];
+//从远程获取数据存储于本地
+fetchData();
+
+//获取函数
+function fetchData(){
+    const endpoint = 'https://raw.githubusercontent.com/soyaine/FE-Practice/f438d3bdf099461f88322b1b1f20c9d58f66f1ec/TangPoetryCut.json';
+   //新建一个ajax请求远程获取古诗词
+   if(window.XMLHttpRequest)
+       var aj = new XMLHttpRequest();
+   else{
+       var aj = new ActiveXObject("Microsoft.XMLHTTP");
+       }
+ aj.open('GET',endpoint,true);
+ aj.send();
+ aj.onreadystatechange = function(){
+  if(aj.readyState == 4 && aj.status == 200){
+    var jResponse = JSON.parse(aj.responseText);
+     jResponse.forEach(function(x){
+      poetrysOrigin.push(x.detail_text);
+     });
+     console.log(poetrysOrigin);
+  }
+ }
+}
+//过滤函数
+function filterData(){
+  var oInput = document.getElementById('detail');
+  var testString = oInput.value;
+  //过滤要显示的
+  poetrysShow = poetrysOrigin.filter(function(d_text){
+     return (d_text.indexOf(testString)>=0)?d_text:'';
+  });
+  //查询结果插入DOM树
+  showData();
+  }
+  //渲染数据
+  function showData(){
+    var oDiv = document.getElementById('think');
+    var len = poetrysShow.length;
+     if( len>0 && len<74){
+
+      for(var i = 0; i <len;i++){
+        var temp = document.createElement("p");
+        temp.innerHTML = poetrysShow[i];
+        oDiv.appendChild(temp);
+     }
+        console.log(poetrysShow.length);
+  }else{
+        oDiv.innerHTML="";
+  }
+}
+
+</script></body>
+</html>
