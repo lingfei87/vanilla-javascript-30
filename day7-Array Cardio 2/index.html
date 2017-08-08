@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Day7 Array Cardio 2</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+//本节为Day4练习的第二部分
+//结果均在调试面板中查看
+//
+    const people = [
+      { name: 'Wes', year: 1988 },
+      { name: 'Kait', year: 1986 },
+      { name: 'Irv', year: 1970 },
+      { name: 'Lux', year: 2015 }
+    ];
+    const comments = [
+      { text: 'Love this!', id: 523423 },
+      { text: 'Super good', id: 823423 },
+      { text: 'You are the best', id: 2039842 },
+      { text: 'Ramen is my fav food ever', id: 123523 },
+      { text: 'Nice Nice Nice!', id: 542328 }
+    ];
+  
+//mission-1 是否有人超过19岁
+/*
+const thisYear = (new Date()).getFullYear();
+var hasOver19 = people.some(function(x){
+     return thisYear - x.year -19;
+})?'Yes':'No';
+console.log(hasOver19);
+*/
+//mission-2 是否所有人都是成年人?
+/*
+const thisYear = (new Date()).getFullYear();
+var isAllAdults = people.every(function(x){
+     return thisYear - x.year >= 18;
+})?'Yes':'No';
+console.log(isAllAdults);
+*/
+//mission-3 找到comments中id为823423的条目
+/*
+var result = comments.find(function(x){
+  if (x.id === 823423){
+    return x;
+  };
+});
+console.log(result);
+*/
+//mission-4 删除id为823423的项
+var destIndex = comments.findIndex(function(x){
+ if(x.id === 823423){
+  return x;
+ }
+});
+console.log(destIndex);
+comments.splice(destIndex,1);
+console.log(comments);
+</script>
+
+</body>
+</html>
