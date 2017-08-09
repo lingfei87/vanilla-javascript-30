@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/**
+ * 
+ * @dash (@example.org)
+ * @date    2017-07-24 21:08:55
+ * @version $1.0$
+ */
+.container {
+    text-align: left;
+}
+.mycanvas {
+    background-color:#f2f2f2;
+}

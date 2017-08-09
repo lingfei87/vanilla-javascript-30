@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title></title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+   <canvas id="canvas" height="400" width="800" class="mycanvas"></canvas>
+</div>
+<script>
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext("2d");
+//标记绘图状态
+drawStatus = {
+    canDraw: false,//是否可绘图
+    x1: -1,//上一坐标点x坐标
+    y1: -1,//上一坐标点y坐标
+    sizeCtrl:0.5,//控制点大小变化幅度
+    sizeOrigin:10//控制点的初始大小
+};
+//设置监听函数
+canvas.onmousedown = function(e){
+    drawStatus.canDraw = true;
+       drawStatus.x1 = e.pageX;
+       drawStatus.y1 = e.pageY;
+};
+canvas.onmouseup = function(e){
+     drawStatus.canDraw = false;
+       drawStatus.x1 = -1;
+       drawStatus.y1 = -1;
+};
+canvas.onmousemove = function(e){
+    if(drawStatus.canDraw){
+        drawLine(e);
+    }
+}
+//绘图函数
+function drawLine(e){
+        ctx.beginPath();
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = colorChange();//色彩渐变
+        ctx.lineWidth = sizeChange();//大小渐变
+        ctx.moveTo(drawStatus.x1, drawStatus.y1);
+        ctx.lineTo(e.pageX, e.pageY);
+        ctx.closePath();
+        ctx.stroke();
+        drawStatus.x1 = e.pageX;
+        drawStatus.y1 = e.pageY;
+}
+//大小控制函数
+function sizeChange() {
+    drawStatus.sizeCtrl = (drawStatus.sizeOrigin>30 || drawStatus.sizeOrigin<10)?-drawStatus.sizeCtrl:drawStatus.sizeCtrl;
+    drawStatus.sizeOrigin +=drawStatus.sizeCtrl;
+    return drawStatus.sizeOrigin;
+}
+function colorChange() {
+    return 'hsl('+(360*(drawStatus.sizeOrigin-10)/20)+',80%,50%)';
+}
+
+
+
+</script>
+
+</body>
+</html>
