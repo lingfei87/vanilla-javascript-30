@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="style.css"></head>
+<body>
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+    <script>
+        const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+// 1.最基本用法
+console.log('1.hello');
+// 2.模板插入
+var x=123;
+console.log('2.The size of Array is %s', x);
+//3.带输出样式
+console.log('%c I am some great text', 'font-size:50px; background:#3498db; text-shadow: 0px 0px 8px white')
+// 4.**警告样式
+console.warn('异常的函数调用');
+ //5.**错误警告 
+console.error('Referrence Error: todo is not a function');
+// 6.信息展示(没看出有什么不同)
+console.info('Crocodiles eat 3-4 people per year');
+// 7.**测试
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ouch'), 'That is wrong!');
+// 8.**清空调试面板
+    console.clear();
+// 9.查看DOM元素
+    console.log(p);
+    console.dir(p);
+// 10.分组技巧
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
+// 11.计数
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Wes');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.count('Steve');
+    console.clear();
+//12.**计时
+  console.time('fetching data');
+  setTimeout(function(){
+    console.timeEnd('fetching data');
+  },1000);
+</script>
+
+</body>
+</html>
