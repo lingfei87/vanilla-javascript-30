@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>10.Hold Shift and Check</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="style.css"></head>
+<body>
+   <div id="container" class="container">
+     <h5>您尝试过的网络游戏包括：</h5>
+     <p><input type="checkbox" value="1"><span>魔兽世界</span></p>
+     <p><input type="checkbox"><span>跑跑卡丁车</span></p>
+     <p><input type="checkbox"><span>冒险岛</span></p>
+     <p><input type="checkbox"><span>王者荣耀</span></p>
+     <p><input type="checkbox"><span>Dota</span></p>
+     <p><input type="checkbox"><span>梦幻西游</span></p>
+     <p><input type="checkbox"><span>炉石传说</span></p>
+     <p><input type="checkbox"><span>刀塔传奇</span></p>
+     <p><input type="checkbox"><span>开心消消乐</span></p>
+     <p><input type="checkbox"><span>仙剑奇侠传</span></p>
+   </div>
+<script>
+    var oCheck = document.querySelectorAll('input[type="checkbox"]');
+    var oChecka = Array.from(oCheck);
+    var lastcheck;
+    //事件处理程序
+    function handleCheck1(e){
+      //脚本化调整样式
+      /*
+       if(this.checked){
+        this.parentNode.classList.add('checked');
+        console.log('adding');
+       }else{
+        this.parentNode.classList.remove('checked');
+        console.log('removing');
+       }*/
+       //ES6写法
+      /*  
+    if(!lastcheck){
+      lastcheck = this;
+    }
+    onOff = lastcheck.checked ? true : false;
+    if(e.shiftKey){
+         var start = oChecka.indexOf(lastcheck);
+         var end = oChecka.indexOf(this);
+         oChecka.slice(Math.min(start,end),Math.max(start,end)+1).forEach(function(input){
+            input.checked = onOff;
+                     });
+    }
+    lastcheck = this;
+    }
+    */
+    //非ES6写法
+    if(!lastcheck){
+      lastcheck = this;
+    }
+    onOff = lastcheck.checked ? true : false;
+    if(e.shiftKey){
+         var start = Array.prototype.indexOf.call(oCheck, lastcheck);
+         var end = Array.prototype.indexOf.call(oCheck, this);
+         var startpos = Math.min(start, end);
+         var endpos = Math.max(start, end);
+         for (var i = startpos ; i<= endpos; i++){
+           oCheck[i].checked = onOff;
+         }
+    }
+    lastcheck = this;
+    }
+    //绑定事件 
+    oCheck.forEach(function(ele){
+      ele.addEventListener('click',handleCheck1);
+    });
+
+
+</script>
+
+</body>
+</html>
