@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/**
+ * 
+ * @dash (@example.org)
+ * @date    2017-07-24 21:08:55
+ * @version $1.0$
+ */
+.container {
+ padding-left:30px;
+}
+
+p {
+    font-size:14px;
+}
+
+input,span {
+    vertical-align: middle;
+}
+
+span {
+    padding-left:5px;
+}
+
+/* 此处为重点 */
+input:checked + span{
+    color:#3498db;
+    font-weight:bold;
+    text-shadow:0 0 4px white;
+}
