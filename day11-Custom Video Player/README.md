@@ -6,8 +6,9 @@
     -可通过按钮快进，回退
     -可点击视频画面或按钮播放或暂停视频
     -可点击或拖动进度条选择播放进度
+    
 ###效果展示
-![结果展示](\origin.png)
+![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/working-branch-dash/day11-Custom%20Video%20Player/orgin.png)
 
 ### 额外挑战
 美化`input[type=range]`的样式
