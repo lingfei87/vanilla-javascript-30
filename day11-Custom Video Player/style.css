@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/**
+ * 
+ * @dash (@example.org)
+ * @date    2017-07-24 21:08:55
+ * @version $1.0$
+ */
+.container {
+    width:100%;
+    text-align: center;
+}
+.ctrl-panel {
+    text-align: center;
+    transform: translateX(-20px);
+}
+.ctrl-panel button{
+    margin:0;
+    padding:5px 10px;
+    background-color: #3498db;
+    color:white;
+    border:none;
+    cursor: pointer;
+}
+.ctrl-panel-item{
+    width:13%;
+    display:inline-block;
+}
+.ctrl-panel-item input{
+    width:50px;
+}
+.ctrl-panel-item label, .ctrl-panel-item input{
+    vertical-align: middle;
+}
+
