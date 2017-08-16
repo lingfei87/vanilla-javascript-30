@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>14.值引用与深拷贝对比</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="container">
+
+</div>
+<script>
+// 1、基本类型传值 为独立变量
+var age = 100;
+var age2 = age;
+console.log(age,age2);
+age = 200;
+console.log(age,age2);
+// 2.数组 （复合类型传引用） 非独立变量
+var players = ['Wes','Boss','Sara','Tbag'];
+var team = players;
+console.log(players,team);
+players[0] = 'Scofield';
+console.log(players,team);
+// 3.数组深拷贝方法1
+var teamDeep1 = players.slice();
+console.log(players,teamDeep1);
+players[0] = 'ScofieldDeep';
+console.log(players,teamDeep1);
+// 4.深拷贝方法2
+// Array.prototype.concat();
+// 5.对象的深拷贝利用json
+wes = {
+  name:'gorgeo',
+  age:24
+}
+var dev2 = JSON.parse(JSON.stringify(wes));
+dev2.age = 26 ;
+console.log(wes, dev2);
+
+
+
+
+
+</script>
+
+</body>
+</html>
