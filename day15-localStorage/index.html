@@ -13,17 +13,66 @@
   <div class="menu">
       <h4>已点清单</h4>
       <hr style="width:40%;margin:auto;">
-      <div class="content">
+      <div class="content" id="content">
           
       </div>
-      <div class="ctrl-panel">
-          <input type="text" placeholder="请输入您想吃的菜式：">
-          <button type="button" class="btn">添加</button>
-          <button type="button" class="btn">清空</button>
+      <form action="/adding" method="GET">
+      <div  class="ctrl-panel">
+          <input id="newOrder" type="text" placeholder="请输入您想吃的菜式：">
+          <button id="addButton" type="submit" class="btn">添加</button>
+          <button id="resetButton" type="reset" class="btn">清空</button>
       </div>
+      </form>
   </div>
 </div>
 <script>
+//获取表单元素
+var oForm = document.forms[0];
+var oInput = document.getElementById('newOrder');
+var oContent = document.getElementById('content');
+var orderList;//用于存放已下单菜式
+
+//初始化视图
+handleStore();
+
+//监听提交事件
+oForm.addEventListener('submit',function(e){
+  e.preventDefault();
+  handleStore();
+});
+
+//监听清空事件
+oForm.addEventListener('reset',function(e){
+  clearStore();
+})
+
+//更新本地数据库
+function handleStore(){
+
+  orderList = window.localStorage['order']?JSON.parse(window.localStorage.getItem('order')):'';
+  if(oInput.value){ 
+    orderList = orderList?(orderList+"<p>"+oInput.value+"</p>"):("<p>"+oInput.value+"</p>");
+    window.localStorage.setItem('order',JSON.stringify(orderList));
+  }
+  updateView();
+}
+
+//更新视图
+function updateView(){
+     oInput.value = '';
+ if (orderList === ''){
+     oContent.innerHTML = "您还没有点餐";
+  }else{
+     oContent.innerHTML = orderList;
+  }
+}
+
+//清空菜单
+function clearStore(){
+  window.localStorage.clear('order');//清空数据库
+  oContent.innerHTML = '';//清空视图DOM
+  orderList = [];//清空数据源
+}
 
 </script>
 </body>
