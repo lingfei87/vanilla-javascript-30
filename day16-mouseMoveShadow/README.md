@@ -10,7 +10,7 @@
    初始文件`index-start.html`中提供了一个包含了`h1`元素的`div`元素，`h1`元素已经设置了`text-Shadow`的样式。本次编程挑战中需要完成的效果是根据用户当前的鼠标位置来操纵文字阴影的位置。
 
 ## 实现效果
-![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/working-branch-dash/day16-mouseMoveShadow/effects.png)
+![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/master/day16-mouseMoveShadow/effects.png)
 
 ## 知识点
 
