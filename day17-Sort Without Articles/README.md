@@ -1,4 +1,4 @@
-# 17 文字阴影的鼠标随动效果
+# 17 数组的去前缀排序
 
 > 本篇作者：©[大史快跑Dashrun](https://github.com/dashrun)——Chinasoft Frontend Web Developer
 
