@@ -11,25 +11,24 @@
    初始文件`index-start.html`中提供了一个无序列表元素，并在`script`标签中提供了一个字符串数组。请为这些字符串排序，要求去除字符串中的`The`，`A`以及`An`的前缀后再进行排序，并把排序后的结果作为列表项展示在无序列表中。
 
 ## 实现效果
-![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/master/day16-mouseMoveShadow/effects.png)
+![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/master/day17-Sort Without Articles/effects.png)
 
 ## 基本思路
-1.基本的编程任务有两个要点，即**排序**和**展示**;
-2.数组排序部分最外层即为`Array.sort(arr)`函数，内层实现具体排序规则;
+1.基本的编程任务有两个要点，即**排序**和**展示**;<br>
+2.数组排序部分最外层即为`Array.sort(arr)`函数，内层实现具体排序规则;<br>
 3.展示部分即将排列好的新数组拼接成带有标签的HTML元素，然后一次性插入到列表中。
-
 
 ## 过程指南(以非ES6版本为例)
 1.声明去前缀函数，使用`String.replace()`函数实现，第一参数使用字面量正则表达式。
 ```js
 function delPrefix(item){
- return item.replace(/^(The|A|An)\s{1}/,'');
+    return item.replace(/^(The|A|An)\s{1}/,'');
 }
 ```
 2.使用`Array.sort()`对数组进行排序，将数组中逐项使用`delPrefix()`去掉前缀后再进行对比。
 ```js
 var sortedbands = bands.sort(function(a,b){
-  return delPrefix(a) > delPrefix(b) ? 1 : -1;
+    return delPrefix(a) > delPrefix(b) ? 1 : -1;
 });
 ```
 3.使用选择器选中无序列表`#bands`，将排序后的数组作为列表项插入其中。
