@@ -11,7 +11,7 @@
 本次的挑战任务，是利用浏览器内置`Web Geolocation API`,将获取到的地理位置及相关坐标，与`index-start.html`中的可视化指南针连接在一起。
 
 ## 实现效果
-![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/master/21%20Geolocation/effects.png)
+![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/master/21%20-%20Geolocation/effects.png)
 由于笔记本电脑一般不带速度及方向传感器，从结果中可以看到返回值中`heading`及`speed`键值均为`null`,为演示可视化效果，代码中采用手动赋值的方式进行演示。   
 
 ## 相关知识
