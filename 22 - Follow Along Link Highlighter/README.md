@@ -21,15 +21,14 @@ Element.getBoundingClientRect()方法返回元素的大小及其相对于视口�
 DOMRect相关属性: 
 Attribute | Type | Description
  --- | --- | ---
-
-bottom  | float  | Y 轴，相对于视口原点（viewport origin）矩形盒子的底部。只读。 
-height  | float  |矩形盒子的高度（等同于 bottom 减 top）。只读。
-left    |float  | X 轴，相对于视口原点（viewport origin）矩形盒子的左侧。只读。 
-right   |float   |X 轴，相对于视口原点（viewport origin）矩形盒子的右侧。只读。 
-top |float  | Y 轴，相对于视口原点（viewport origin）矩形盒子的顶部。只读。
-width   |float  | 矩形盒子的宽度（等同于 right 减 left）。只读。 
-x  | float |  X轴横坐标，矩形盒子左边相对于视口原点（viewport origin）的距离。只读。 
-y  | float |   Y轴纵坐标，矩形盒子顶部相对于视口原点（viewport origin）的距离。只读。
+bottom | float | Y 轴，相对于视口原点（viewport origin）矩形盒子的底部。只读。 
+height | float | 矩形盒子的高度（等同于 bottom 减 top）。只读。
+left | float | X 轴，相对于视口原点（viewport origin）矩形盒子的左侧。只读。 
+right | float | X 轴，相对于视口原点（viewport origin）矩形盒子的右侧。只读。 
+top | float | Y 轴，相对于视口原点（viewport origin）矩形盒子的顶部。只读。
+width | float | 矩形盒子的宽度（等同于 right 减 left）。只读。 
+x | float | X轴横坐标，矩形盒子左边相对于视口原点（viewport origin）的距离。只读。 
+y | float | Y轴纵坐标，矩形盒子顶部相对于视口原点（viewport origin）的距离。只读。
 
 ## 编程思路
 1.生成一个绝对定位的块元素，在后续改变其`top`及`left`坐标值移动至对应标签处，来呈现不同标签被激活的效果;    
