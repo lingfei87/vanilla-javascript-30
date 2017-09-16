@@ -19,6 +19,7 @@
 Element.getBoundingClientRect()方法返回元素的大小及其相对于视口的位置。   
 返回值是一个`DOMRect`对象，这个对象是由该元素的`getClientRects()`方法返回的一组矩形的集合, 即：是与该元素相关的CSS边框集合。`DOMRect` 对象包含了一组用于描述边框的只读属性——left、top、right和bottom，单位为像素。除了 width 和 height 外的属性都是相对于视口的左上角位置而言的。   
 DOMRect相关属性: 
+
 Attribute | Type | Description
  --- | --- | ---
 bottom | float | Y 轴，相对于视口原点（viewport origin）矩形盒子的底部。只读。 
