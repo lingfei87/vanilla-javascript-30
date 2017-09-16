@@ -11,7 +11,8 @@
 初始文档`index-start.html`提供了一组使用`<ul>`及`<li>`标签包裹的导航标签。本次的编程挑战任务是完成如下动画效果：当鼠标移动至某个对应标签上时，为标签添加一个白色的背景框，高亮表示该标签被选中，当鼠标移动至其他标签后，白色背景框不消失，而是直接跟随鼠标平移至新的标签，实现效果见下图展示。
 
 ## 实现效果
-![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/master/22%20-%20Follow%20Along%20Link%20Highlighter/effects.png)
+![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/master/22%20-%20Follow%20Along%20Link%20Highlighter/effects.gif)
+
 
 ## 相关知识
 `Element.getBoundingClientRect()`   
@@ -19,7 +20,8 @@ Element.getBoundingClientRect()方法返回元素的大小及其相对于视口�
 返回值是一个`DOMRect`对象，这个对象是由该元素的`getClientRects()`方法返回的一组矩形的集合, 即：是与该元素相关的CSS边框集合。`DOMRect` 对象包含了一组用于描述边框的只读属性——left、top、right和bottom，单位为像素。除了 width 和 height 外的属性都是相对于视口的左上角位置而言的。   
 DOMRect相关属性: 
 Attribute | Type | Description
- --- | :---: | :---:
+ --- | --- | ---
+
 bottom  | float  | Y 轴，相对于视口原点（viewport origin）矩形盒子的底部。只读。 
 height  | float  |矩形盒子的高度（等同于 bottom 减 top）。只读。
 left    |float  | X 轴，相对于视口原点（viewport origin）矩形盒子的左侧。只读。 
