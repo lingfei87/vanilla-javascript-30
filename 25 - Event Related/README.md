@@ -11,7 +11,7 @@
 初始文档`index-start.html`提供了3个尺寸不一的`<div>`元素，本次挑战是一次学习任务，主要了解学习DOM的事件机制，包括事件捕获，事件冒泡，单次触发等。
 
 ## 结果展示
-![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/master/23%20-%20Speech%20Synthesis/effects.png)
+![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/master/25%20-%20Event%20Related/effects.png)
 
 ## 相关知识
 [addEventListener文档](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener)
@@ -53,7 +53,8 @@
 ```   
 3.在事件回调函数中调用`e.stopPropagation()`方法后，即可看到在该处监听到事件后不再继续传递事件、
 
-
+## 延伸知识   
+由于事件冒泡机制的存在，实际应用中常在父元素来监听众多同类子元素的点击事件，如在`<ul>`元素上监听多个`<li>`元素的点击事件，任何一个`<li>`元素被点击后，父元素都会监听到点击事件，更常用的方法是jQuery中的事件委托机制，感兴趣的小伙伴可以自行了解。
 
 
 
