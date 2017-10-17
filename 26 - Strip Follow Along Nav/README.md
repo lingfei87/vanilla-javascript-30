@@ -11,7 +11,7 @@
 初始文档`index-start.html`中提供了一组导航按钮，本次的编程任务需要实现的效果是当鼠标悬停于导航按钮时，显示对应下拉菜单的内容。（说明：下拉菜单内容及白色背景已写好，只需要根据需要改变其CSS属性使元素显示出来或改变其位置即可）。
 
 ## 实现效果
-![结果展示](https://github.com/dashrun/vanilla-javascript-30/tree/master/26%20-%20Strip%20Follow%20Along%20Nav/effect.png)
+![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/master/26%20-%20Strip%20Follow%20Along%20Nav/effect.png)
 
 ## 编程思路  
 监听每一个导航栏按钮绑定鼠标移入和移出的事件，在对应的回调函数中为相应的元素增加已经编写好的类名即可。
