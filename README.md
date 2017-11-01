@@ -1,7 +1,9 @@
 # JavaScript30 - 30天原生JS挑战中文指南
 
 创建日期：2017-7-27   
-最后更新：2017-09-11
+最后更新：2017-11-1
+
+> 缺少readme.md说明文件的章节会逐步补上!
 
 > Repo by: [大史快跑Dashrun](https://github.com/dashrun)  
 > [JavaScript30](https://javascript30.com) 教程作者：[Wes Bos](https://github.com/wesbos)    
