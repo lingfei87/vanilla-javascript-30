@@ -8,10 +8,11 @@
 最后更新：2017-11-6
 
 ## 挑战任务
-初始文档`index-start.html`中提供了一个
+初始文档`index-start.html`中提供了一个倒计时控制器，从`html`文档的结构可以看出，顶部的按钮可以用来增加倒计时时间，常用的时间间隔已将参数绑定在`data-time`属性上;`display`类用来显示计时的结果。   
+本次编程挑战的任务是通过javascript代码基于当前时间生成一个倒计时，将`结束时间`和`剩余时间`分别显示在`diaplay__time-left`类标签和`display__end-time`类标签上。
 
 ## 实现效果
-![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/master/28%20-%20Video%20Speed%20Controller/effect.png)
+![结果展示](https://github.com/dashrun/vanilla-javascript-30/blob/master/29%20-%20Countdown%20Timer/effect.png)
 
 ## 编程思路  
 
